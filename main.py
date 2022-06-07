@@ -11,9 +11,165 @@ import io
 from flask import Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+import telebot
+from telebot import types
+from telebot import apihelper
+import os
+import time
+import config
+
+TOKEN = config.telegram_bot_token
 
 plt.rcParams["figure.figsize"] = [7.50, 3.50]
 plt.rcParams["figure.autolayout"] = True
+
+# apihelper.proxy = {
+# 'http': 'http://23.227.38.122:80',
+# 'http': 'http://23.227.38.122:80'
+# }
+
+
+bot = telebot.TeleBot(TOKEN)
+
+print("Telebot started")
+
+
+# filter applied to groups or channels (NO PRIVATE CHATS)
+class IsAdmin(telebot.custom_filters.SimpleCustomFilter):
+    # Class will check whether the user is admin or creator in group or not
+    key = 'is_admin'
+
+    @staticmethod
+    def check(message: telebot.types.Message):
+        print(bot.get_chat_member(message.chat.id, message.from_user.id).status)
+        print(message.chat.type)
+        return bot.get_chat_member(message.chat.id, message.from_user.id).status in ['administrator',
+                                                                                     'creator'] and message.chat.type in [
+                   'group', 'channel']
+
+
+# To register filter, you need to use method add_custom_filter.
+bot.add_custom_filter(IsAdmin())
+
+
+# Команды
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    markup = types.InlineKeyboardMarkup()
+    button1 = types.InlineKeyboardButton("Ссылка на github",
+                                         url='https://github.com/KAPTOWE4KA/flask-html-parse/tree/telegram-bot-add')
+    markup.add(button1)
+    bot.send_message(message.chat.id,
+                     f"Привет {message.from_user.first_name}! Это тестовый бот телеграмм. Нажми на кнопку, чтобы перейти на github этого бота. Напиши команду /menu для перехода в меню комманд бота.",
+                     reply_markup=markup)
+
+
+@bot.message_handler(commands=['analytics'])
+def get_analytics(message):
+    bot.send_message(message.chat.id, f"""Доля бесплатных игр в трендах (на главной странице): {free_percentage()}%
+        Средняя цена игр в трендах (на главной странице): {price_average()} 
+        Средняя скидка (без учета игр без скидок) игр в трендах (на главной странице): {discount_average()}% """)
+
+
+@bot.message_handler(commands=['get_html'])
+def get_html_tele(message):
+    if message.text.split(" ").__len__() > 1:
+        if message.text.split(" ")[1] == "help":
+            bot.send_message(chat_id=message.chat.id, text="Доступные аргументы для команды /get_html: help, new")
+        elif message.text.split(" ")[1] == "new":
+            clear_html = get_html()
+            # html = get_div(cut_scripts(cut_head(html)), "", "\"tab_newreleases_content\"")
+            clear_html, head = cut_head(clear_html)
+            clear_html = get_elements_by_type(get_div(clear_html, "", "\"tab_newreleases_content\""), "a",
+                                              arg="data-ds-itemkey=\"App_")
+            file = open("steam_new_releases_clear.html", "w", encoding="utf-8")
+            file.write(clear_html)
+            file.close()
+            with open("steam_new_releases_clear.html", 'r', encoding="utf-8") as data:
+                bot.send_document(chat_id=message.chat.id, document=data)
+    else:
+        bot.send_message(chat_id=message.chat.id,
+                         text="Отсутствуют нужные аргументы у команды. Для помощи напишите /get_html help")
+
+
+@bot.message_handler(commands=['menu'])
+def menu(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("/start")
+    btn2 = types.KeyboardButton("/menu")
+    btn4 = types.KeyboardButton("/plot")
+    btn5 = types.KeyboardButton("/json")
+    btn6 = types.KeyboardButton("/get_html help")
+    btn7 = types.KeyboardButton("/analytics")
+    markup.add(btn1, btn2, btn4, btn5, btn6, btn7)
+    bot.send_message(message.chat.id,
+                     text=f"Привет, {message.from_user.first_name}! Меню команд появится у тебя под строкой сообщений.",
+                     reply_markup=markup)
+
+
+@bot.message_handler(commands=['json'])
+def plot_tele(message):
+    if not isfile("steam_new_releases.json"):
+        get_json()
+    with open("steam_new_releases.json", "r", encoding="utf-8") as data:
+        bot.send_document(message.chat.id, document=data)
+
+
+@bot.message_handler(commands=['plot'])
+def plot_tele(message):
+    if not isfile("steam_new_releases.json"):
+        get_json()
+    file = open("steam_new_releases.json", "r", encoding="utf-8")
+    data_json = json.loads(file.read())
+    tags = {}
+    for game in data_json['games']:
+        if len(game["tags"]) > 0:
+            for tag in game["tags"]:
+                if tag not in tags.keys():
+                    tags[tag] = 1
+                else:
+                    tags[tag] += 1
+    fig = Figure(figsize=[14, 7], dpi=100)
+    axis = fig.add_subplot(1, 1, 1)
+    no_solo_tags = {}
+    for key in tags.keys():
+        if tags[key] > 6:
+            # print(tags[key])
+            no_solo_tags[key] = tags[key]
+    xs = [t for t in no_solo_tags.keys()]  # np.random.rand(100)
+    # print(xs)
+    ys = [t for t in no_solo_tags.values()]  # np.random.rand(100)
+    # print(ys)
+    # axis.hist(no_solo_tags, orientation='horizontal')#orientation='horizontal'
+    axis.bar(xs, ys, width=0.7)  # orientation='horizontal'
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    bot.send_photo(chat_id=message.chat.id, photo=output.getvalue())
+    # return Response(output.getvalue(), mimetype='image/png')
+
+
+@bot.message_handler(commands=['timer'], is_admin=True)
+def timer(message):
+    for i in range(5):
+        time.sleep(1)
+        bot.send_message(chat_id=message.chat.id, text=str(i + 1))
+
+
+# Остальной текст
+@bot.message_handler(content_types=['text'])
+def menu_check(message):
+    bot.send_message(message.chat.id, text="Вы что-то написали боту, но он пока не знает что вам на это ответить...")
+
+
+# Pictures
+@bot.message_handler(content_types=["sticker"])
+def send_sticker(message):
+    print(message)
+    bot.send_message(message.chat.id, 'No stickers please')
+    bot.delete_message(chat_id=message.chat.id, message_id=message.id)
+
+
+# html parse block
 
 
 def cut_scripts(html):
@@ -146,46 +302,9 @@ def free_percentage():
                 free_count += 1
         except KeyError as e:
             print(f"{game['game_name']} не имеет показатель цены")
-    return round(free_count / size*100, 2)
+    return round(free_count / size * 100, 2)
 
 
-### Flask routes:
-
-
-app = Flask(__name__)
-
-
-@app.route("/")
-def index():
-    html = get_html()
-    # html = get_div(cut_scripts(cut_head(html)), "", "\"tab_newreleases_content\"")
-    html, head = cut_head(html)
-    html = """
-        <h3>Меню</h3>
-        <a href="/json">Получить список игр в тренде Steam в виде JSON</a><br><br>
-        <a href="/analytics">Неполная аналитика по играм в тренде на главной странице Steam</a>
-        """
-    # для красоты оставил класс на body и голову страницы
-    file = open("steam_new_releases.html", "w", encoding="utf-8")
-    file.write(html)
-    file.close()
-    return html
-
-
-@app.route("/clear")
-def clear():
-    clear_html = get_html()
-    # html = get_div(cut_scripts(cut_head(html)), "", "\"tab_newreleases_content\"")
-    clear_html, head = cut_head(clear_html)
-    clear_html = get_elements_by_type(get_div(clear_html, "", "\"tab_newreleases_content\""), "a",
-                                      arg="data-ds-itemkey=\"App_")
-    file = open("steam_new_releases_clear.html", "w", encoding="utf-8")
-    file.write(clear_html)
-    file.close()
-    return clear_html
-
-
-@app.route("/json")
 def get_json():
     json_html = get_html()
     # html = get_div(cut_scripts(cut_head(html)), "", "\"tab_newreleases_content\"")
@@ -239,49 +358,4 @@ def get_json():
     return "<pre style=\"word-wrap: break-word; white-space: pre-wrap;\">" + dumped_json.decode("utf-8") + "</pre>"
 
 
-@app.route("/analytics")
-def get_plot():
-    return f"""
-            <h2>График популярности тегов (на главной странице / не все)</h2><img src="/plot.png" alt="Plot not found">
-            <h3>Доля бесплатных игр в трендах (на главной странице): {free_percentage()}%</h2>
-            <h3> Средняя цена игр в трендах (на главной странице): {price_average()} </h2>
-            <h3> Средняя скидка (без учета игр без скидок) игр в трендах (на главной странице): {discount_average()}%</h2>
-            <a href="/json">Получить список игр в тренде Steam в виде JSON</a><br><br>
-            <a href="/">Наза в меню</a><br><br>
-           """
-
-
-@app.route("/plot.png")
-def get_plot_tags():
-    if not isfile("steam_new_releases.json"):
-        get_json()
-    file = open("steam_new_releases.json", "r", encoding="utf-8")
-    data_json = json.loads(file.read())
-    tags = {}
-    for game in data_json['games']:
-        if len(game["tags"]) > 0:
-            for tag in game["tags"]:
-                if tag not in tags.keys():
-                    tags[tag] = 1
-                else:
-                    tags[tag] += 1
-    fig = Figure(figsize=[14, 7], dpi=100)
-    axis = fig.add_subplot(1, 1, 1)
-    no_solo_tags = {}
-    for key in tags.keys():
-        if tags[key] > 6:
-            #print(tags[key])
-            no_solo_tags[key] = tags[key]
-    xs = [t for t in no_solo_tags.keys()]  # np.random.rand(100)
-    #print(xs)
-    ys = [t for t in no_solo_tags.values()]  # np.random.rand(100)
-    #print(ys)
-    # axis.hist(no_solo_tags, orientation='horizontal')#orientation='horizontal'
-    axis.bar(xs, ys, width=0.7)  # orientation='horizontal'
-    output = io.BytesIO()
-    FigureCanvas(fig).print_png(output)
-    return Response(output.getvalue(), mimetype='image/png')
-
-
-if __name__ == "__main__":
-    app.run()
+bot.polling()
