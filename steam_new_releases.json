@@ -2,26 +2,46 @@
      "games": [
           {
                "discount_percentage": 10,
-               "original_price": 2400,
-               "final_price": 2160,
-               "game_name": "Police Shootout",
+               "original_price": 1050,
+               "final_price": 945,
+               "game_name": "Escape Simulator: Steampunk DLC",
                "tags": [
-                    "Turn-Based Combat",
+                    "Adventure",
                     "Simulation",
-                    "Shooter",
-                    "Indie"
+                    "Indie",
+                    "Casual"
                ]
           },
           {
-               "discount_percentage": 10,
-               "original_price": 2650,
-               "final_price": 2385,
-               "game_name": "CORPSE FACTORY",
+               "final_price": 9999,
+               "game_name": "The Elder Scrolls Online: High Isle",
                "tags": [
-                    "Visual Novel",
-                    "Violent",
-                    "Thriller",
-                    "Psychological Horror"
+                    "Adventure",
+                    "RPG",
+                    "MMORPG",
+                    "Action"
+               ]
+          },
+          {
+               "final_price": 0,
+               "game_name": "Endlanders : First Encounter",
+               "tags": [
+                    "Action",
+                    "RPG",
+                    "Action RPG",
+                    "Card Game"
+               ]
+          },
+          {
+               "discount_percentage": 15,
+               "original_price": 4250,
+               "final_price": 3612,
+               "game_name": "Card Shark",
+               "tags": [
+                    "Indie",
+                    "Story Rich",
+                    "Stealth",
+                    "Historical"
                ]
           },
           {
@@ -47,35 +67,13 @@
                ]
           },
           {
-               "final_price": 11999,
-               "game_name": "Kao the Kangaroo",
-               "tags": [
-                    "3D Platformer",
-                    "Action",
-                    "Action-Adventure",
-                    "Combat"
-               ]
-          },
-          {
                "final_price": 9499,
                "game_name": "Hatsune Miku: Project DIVA Mega Mix+",
                "tags": [
-                    "Action",
                     "Rhythm",
-                    "Arcade",
-                    "Anime"
-               ]
-          },
-          {
-               "discount_percentage": 40,
-               "original_price": 650,
-               "final_price": 390,
-               "game_name": "Fairy Biography",
-               "tags": [
-                    "Sexual Content",
-                    "Nudity",
-                    "Casual",
-                    "Strategy"
+                    "Action",
+                    "Anime",
+                    "Arcade"
                ]
           },
           {
@@ -84,8 +82,8 @@
                "tags": [
                     "Action",
                     "Adventure",
-                    "World War II",
-                    "Shooter"
+                    "Stealth",
+                    "World War II"
                ]
           },
           {
@@ -115,19 +113,9 @@
                "game_name": "Hardspace: Shipbreaker",
                "tags": [
                     "Space",
-                    "Simulation",
                     "Sci-fi",
+                    "Simulation",
                     "Physics"
-               ]
-          },
-          {
-               "final_price": 1950,
-               "game_name": "Soda Crisis",
-               "tags": [
-                    "Side Scroller",
-                    "Runner",
-                    "Action",
-                    "Shoot 'Em Up"
                ]
           },
           {
@@ -136,8 +124,8 @@
                "tags": [
                     "Adventure",
                     "Exploration",
-                    "Sandbox",
-                    "Sci-fi"
+                    "Sci-fi",
+                    "Sandbox"
                ]
           },
           {
@@ -161,13 +149,23 @@
                ]
           },
           {
+               "final_price": 11700,
+               "game_name": "Plants vs. Zombies\u2122 Garden Warfare 2: Deluxe Edition",
+               "tags": [
+                    "Hero Shooter",
+                    "Third-Person Shooter",
+                    "Zombies",
+                    "PvP"
+               ]
+          },
+          {
                "final_price": 0,
                "game_name": "10 Minutes Till Dawn",
                "tags": [
                     "Shoot 'Em Up",
                     "Action Roguelike",
                     "Lovecraftian",
-                    "Roguelike"
+                    "Action"
                ]
           },
           {
@@ -212,6 +210,16 @@
           },
           {
                "final_price": 0,
+               "game_name": "Kemono Friends Cellien May Cry",
+               "tags": [
+                    "Action Roguelike",
+                    "Hack and Slash",
+                    "Action",
+                    "Female Protagonist"
+               ]
+          },
+          {
+               "final_price": 0,
                "game_name": "Idle Spiral",
                "tags": [
                     "Simulation",
@@ -246,48 +254,8 @@
                "tags": [
                     "Comedy",
                     "Multiple Endings",
-                    "Walking Simulator",
-                    "Choices Matter"
-               ]
-          },
-          {
-               "final_price": 0,
-               "game_name": "THE BUTTON",
-               "tags": [
-                    "Psychological Horror",
-                    "Souls-like",
-                    "Clicker",
-                    "Story Rich"
-               ]
-          },
-          {
-               "final_price": 0,
-               "game_name": "Vampire: The Masquerade - Bloodhunt",
-               "tags": [
-                    "Battle Royale",
-                    "Vampire",
-                    "PvP",
-                    "Third-Person Shooter"
-               ]
-          },
-          {
-               "final_price": 5250,
-               "game_name": "King Arthur: Knight's Tale",
-               "tags": [
-                    "Tactical RPG",
-                    "Turn-Based Tactics",
-                    "Dark Fantasy",
-                    "RPG"
-               ]
-          },
-          {
-               "final_price": 0,
-               "game_name": "The Elder Scrolls II: Daggerfall",
-               "tags": [
-                    "RPG",
-                    "Action RPG",
-                    "Fantasy",
-                    "Singleplayer"
+                    "Choices Matter",
+                    "Walking Simulator"
                ]
           },
           {
@@ -296,20 +264,8 @@
                "tags": [
                     "Early Access",
                     "Survival",
-                    "Vampire",
-                    "Crafting"
-               ]
-          },
-          {
-               "discount_percentage": 50,
-               "original_price": 15999,
-               "final_price": 7999,
-               "game_name": "It Takes Two",
-               "tags": [
-                    "Co-op",
-                    "Multiplayer",
-                    "Split Screen",
-                    "Adventure"
+                    "Open World",
+                    "Vampire"
                ]
           },
           {
@@ -323,152 +279,37 @@
                ]
           },
           {
-               "final_price": 1950,
-               "game_name": "EA Play",
+               "discount_percentage": 10,
+               "original_price": 4300,
+               "final_price": 3870,
+               "game_name": "Stray",
                "tags": [
-                    ""
-               ]
-          },
-          {
-               "discount_percentage": 59,
-               "original_price": 19999,
-               "final_price": 8199,
-               "game_name": "Mass Effect\u2122 Legendary Edition",
-               "tags": [
-                    "RPG",
-                    "Story Rich",
-                    "Choices Matter",
-                    "Sci-fi"
-               ]
-          },
-          {
-               "final_price": 4490,
-               "game_name": "Captain of Industry",
-               "tags": [
-                    "Early Access",
-                    "Simulation",
-                    "Strategy",
-                    "Automation"
+                    "Cats",
+                    "Adventure",
+                    "Cyberpunk",
+                    "Indie"
                ]
           },
           {
                "discount_percentage": 50,
-               "original_price": 10500,
-               "final_price": 5250,
-               "game_name": "No Man's Sky",
-               "tags": [
-                    "Open World",
-                    "Open World Survival Craft",
-                    "Space",
-                    "Exploration"
-               ]
-          },
-          {
-               "discount_percentage": 66,
-               "original_price": 14600,
-               "final_price": 4964,
-               "game_name": "Total War: WARHAMMER II",
-               "tags": [
-                    "Strategy",
-                    "Fantasy",
-                    "Turn-Based Strategy",
-                    "RTS"
-               ]
-          },
-          {
-               "discount_percentage": 66,
-               "original_price": 2400,
-               "final_price": 816,
-               "game_name": "Besiege",
-               "tags": [
-                    "Building",
-                    "Sandbox",
-                    "Physics",
-                    "Destruction"
-               ]
-          },
-          {
-               "final_price": 4366,
-               "game_name": "Fallout 1st",
-               "tags": [
-                    "Capitalism",
-                    "Dark Comedy",
-                    "Comedy",
-                    "Dark Humor"
-               ]
-          },
-          {
-               "final_price": 5800,
-               "game_name": "STAR WARS\u2122: The Old Republic\u2122- Subscriptions",
-               "tags": [
-                    "Massively Multiplayer",
-                    "MMORPG"
-               ]
-          },
-          {
-               "final_price": 12999,
-               "game_name": "Warhammer 40,000: Darktide",
-               "tags": [
-                    "Warhammer 40K",
-                    "Hack and Slash",
-                    "FPS",
-                    "PvE"
-               ]
-          },
-          {
-               "final_price": 3300,
-               "game_name": "My Time at Sandrock",
-               "tags": [
-                    "Life Sim",
-                    "Sandbox",
-                    "RPG",
-                    "Crafting"
-               ]
-          },
-          {
-               "final_price": 950,
-               "game_name": "Wallpaper Engine",
-               "tags": [
-                    "Mature",
-                    "Utilities",
-                    "Software",
-                    "Anime"
-               ]
-          },
-          {
-               "discount_percentage": 75,
-               "original_price": 11700,
-               "final_price": 2925,
-               "game_name": "A Way Out",
+               "original_price": 15999,
+               "final_price": 7999,
+               "game_name": "It Takes Two",
                "tags": [
                     "Co-op",
-                    "Online Co-Op",
+                    "Multiplayer",
                     "Split Screen",
-                    "Story Rich"
+                    "Puzzle"
                ]
           },
           {
-               "discount_percentage": 75,
-               "original_price": 14600,
-               "final_price": 3650,
-               "game_name": "Total War: WARHAMMER",
+               "final_price": 4700,
+               "game_name": "Sea of Thieves",
                "tags": [
-                    "Strategy",
-                    "Fantasy",
-                    "RTS",
-                    "War"
-               ]
-          },
-          {
-               "discount_percentage": 20,
-               "original_price": 3300,
-               "final_price": 2640,
-               "game_name": "Nobody Saves the World",
-               "tags": [
-                    "RPG",
-                    "Action RPG",
-                    "Hack and Slash",
-                    "Action"
+                    "Adventure",
+                    "Open World",
+                    "Multiplayer",
+                    "Pirates"
                ]
           },
           {
@@ -482,71 +323,139 @@
                ]
           },
           {
-               "game_name": "Souldiers",
+               "discount_percentage": 25,
+               "original_price": 2400,
+               "final_price": 1800,
+               "game_name": "Escape Simulator",
                "tags": [
-                    "Metroidvania",
+                    "Puzzle",
+                    "Co-op",
+                    "Multiplayer",
+                    "Escape Room"
+               ]
+          },
+          {
+               "final_price": 10000,
+               "game_name": "Rust",
+               "tags": [
+                    "Survival",
+                    "Crafting",
+                    "Multiplayer",
+                    "Open World"
+               ]
+          },
+          {
+               "final_price": 950,
+               "game_name": "Wallpaper Engine",
+               "tags": [
+                    "Mature",
+                    "Utilities",
+                    "Software",
+                    "Anime"
+               ]
+          },
+          {
+               "final_price": 2400,
+               "game_name": "Stardew Valley",
+               "tags": [
+                    "Farming Sim",
+                    "Life Sim",
                     "Pixel Graphics",
-                    "Action",
-                    "Action-Adventure"
+                    "RPG"
                ]
           },
           {
-               "final_price": 0,
-               "game_name": "Truck Mechanic: Dangerous Paths - Prologue",
+               "discount_percentage": 59,
+               "original_price": 19999,
+               "final_price": 8199,
+               "game_name": "Mass Effect\u2122 Legendary Edition",
                "tags": [
-                    "Simulation",
-                    "Racing",
-                    "Automobile Sim",
-                    "Action-Adventure"
-               ]
-          },
-          {
-               "discount_percentage": 15,
-               "original_price": 4250,
-               "final_price": 3612,
-               "game_name": "Card Shark",
-               "tags": [
-                    "Indie",
-                    "Stealth",
-                    "Story Rich",
-                    "Historical"
-               ]
-          },
-          {
-               "game_name": "Yakiniku Simulation",
-               "tags": [
-                    "Cooking",
-                    "Simulation",
-                    "Time Management",
-                    "Indie"
-               ]
-          },
-          {
-               "game_name": "Ashina: The Red Witch",
-               "tags": [
-                    "Adventure",
-                    "Pixel Graphics",
-                    "Horror",
-                    "Psychological Horror"
-               ]
-          },
-          {
-               "final_price": 9999,
-               "game_name": "The Elder Scrolls Online: High Isle",
-               "tags": [
-                    "Adventure",
                     "RPG",
-                    "MMORPG",
-                    "Action"
+                    "Story Rich",
+                    "Sci-fi",
+                    "Choices Matter"
                ]
           },
           {
-               "game_name": "sU and the Quest For Meaning",
+               "discount_percentage": 25,
+               "original_price": 2600,
+               "final_price": 1950,
+               "game_name": "Hero's Hour",
                "tags": [
-                    "Minimalist",
-                    "Puzzle Platformer",
-                    "Precision Platformer",
-                    "Puzzle"
+                    "Local Co-Op",
+                    "Strategy",
+                    "Auto Battler",
+                    "Turn-Based Strategy"
+               ]
+          },
+          {
+               "final_price": 2650,
+               "game_name": "Ultimate Epic Battle Simulator 2",
+               "tags": [
+                    "Early Access",
+                    "Simulation",
+                    "Action",
+                    "Strategy"
+               ]
+          },
+          {
+               "final_price": 5900,
+               "game_name": "Ready or Not",
+               "tags": [
+                    "Tactical",
+                    "Realistic",
+                    "FPS",
+                    "Multiplayer"
+               ]
+          },
+          {
+               "final_price": 2650,
+               "game_name": "Project Zomboid",
+               "tags": [
+                    "Survival",
+                    "Zombies",
+                    "Open World",
+                    "Open World Survival Craft"
+               ]
+          },
+          {
+               "final_price": 10500,
+               "game_name": "No Man's Sky",
+               "tags": [
+                    "Open World",
+                    "Open World Survival Craft",
+                    "Space",
+                    "Exploration"
+               ]
+          },
+          {
+               "final_price": 2650,
+               "game_name": "Raft",
+               "tags": [
+                    "Survival",
+                    "Open World Survival Craft",
+                    "Multiplayer",
+                    "Co-op"
+               ]
+          },
+          {
+               "final_price": 4490,
+               "game_name": "Captain of Industry",
+               "tags": [
+                    "Early Access",
+                    "Simulation",
+                    "Strategy",
+                    "Automation"
+               ]
+          },
+          {
+               "final_price": 17040,
+               "game_name": "Monster Hunter Rise: Sunbreak",
+               "tags": [
+                    "Action",
+                    "Multiplayer",
+                    "RPG",
+                    "Co-op"
                ]
           },
           {
@@ -587,29 +496,11 @@
                ]
           },
           {
-               "game_name": "Spacelines from the Far Out",
+               "game_name": "Green Hell VR",
                "tags": [
-                    "Aliens",
-                    "Family Friendly",
-                    "Management",
-                    "Multiplayer"
-               ]
-          },
-          {
-               "game_name": "POSTAL: Brain Damaged",
-               "tags": [
-                    "Comedy",
-                    "Funny",
-                    "Memes",
-                    "Gore"
-               ]
-          },
-          {
-               "game_name": "Madshot",
-               "tags": [
-                    "Early Access",
-                    "Indie",
-                    "Action Roguelike",
+                    "VR",
+                    "Adventure",
+                    "Survival",
                     "Action"
                ]
           },
@@ -623,12 +514,39 @@
                ]
           },
           {
-               "game_name": "Green Hell VR",
+               "game_name": "POSTAL: Brain Damaged",
                "tags": [
-                    "VR",
-                    "Adventure",
-                    "Survival",
+                    "Comedy",
+                    "Funny",
+                    "Memes",
+                    "FPS"
+               ]
+          },
+          {
+               "game_name": "Spacelines from the Far Out",
+               "tags": [
+                    "Co-op",
+                    "Indie",
+                    "Singleplayer",
+                    "Multiplayer"
+               ]
+          },
+          {
+               "game_name": "Madshot",
+               "tags": [
+                    "Early Access",
+                    "Indie",
+                    "Action Roguelike",
                     "Action"
+               ]
+          },
+          {
+               "game_name": "Meteor World Actor: Badge &amp; Dagger",
+               "tags": [
+                    "Detective",
+                    "Noir",
+                    "Fantasy",
+                    "Comedy"
                ]
           },
           {
@@ -651,21 +569,21 @@
                ]
           },
           {
-               "game_name": "Symphony of War: The Nephilim Saga",
-               "tags": [
-                    "RPG",
-                    "Story Rich",
-                    "Tactical RPG",
-                    "Fantasy"
-               ]
-          },
-          {
                "game_name": "Project Warlock II",
                "tags": [
                     "Early Access",
                     "Shooter",
                     "Retro",
                     "Old School"
+               ]
+          },
+          {
+               "game_name": "Symphony of War: The Nephilim Saga",
+               "tags": [
+                    "RPG",
+                    "Story Rich",
+                    "Tactical RPG",
+                    "Fantasy"
                ]
           },
           {
@@ -678,21 +596,21 @@
                ]
           },
           {
-               "game_name": "Freshly Frosted",
-               "tags": [
-                    "Puzzle",
-                    "Cute",
-                    "Simulation",
-                    "Relaxing"
-               ]
-          },
-          {
                "game_name": "LumbearJack",
                "tags": [
                     "Casual",
                     "Cute",
                     "Funny",
                     "Adventure"
+               ]
+          },
+          {
+               "game_name": "Freshly Frosted",
+               "tags": [
+                    "Puzzle",
+                    "Cute",
+                    "Simulation",
+                    "Relaxing"
                ]
           },
           {
@@ -725,10 +643,10 @@
           {
                "game_name": "Skeleton Crew",
                "tags": [
-                    "2D Platformer",
-                    "Exploration",
-                    "Action RPG",
-                    "Hack and Slash"
+                    "Local Co-Op",
+                    "Online Co-Op",
+                    "Multiplayer",
+                    "Singleplayer"
                ]
           },
           {
@@ -742,7 +660,7 @@
           },
           {
                "final_price": 3900,
-               "game_name": "Starship Troopers - Terran Command",
+               "game_name": "Starship Troopers: Terran Command",
                "tags": [
                     "Strategy",
                     "RTS",
@@ -760,159 +678,69 @@
                ]
           },
           {
-               "discount_percentage": 66,
-               "original_price": 3000,
-               "final_price": 1020,
-               "game_name": "Human: Fall Flat",
-               "tags": [
-                    "Co-op",
-                    "Puzzle",
-                    "Funny",
-                    "Adventure"
-               ]
-          },
-          {
-               "discount_percentage": 75,
-               "original_price": 19000,
-               "final_price": 4750,
-               "game_name": "Warhammer 40,000: Space Marine - Anniversary Edition",
-               "tags": [
-                    "Warhammer 40K",
-                    "Action",
-                    "Third-Person Shooter",
-                    "Sci-fi"
-               ]
-          },
-          {
-               "discount_percentage": 25,
-               "original_price": 25000,
-               "final_price": 18750,
-               "game_name": "Destiny 2: The Witch Queen Deluxe + Bungie 30th Anniversary Bundle",
+               "game_name": "Final Vendetta",
                "tags": [
                     "Action",
-                    "Adventure",
-                    "Free to Play",
-                    "FPS"
+                    "Beat 'em up",
+                    "Pixel Graphics",
+                    "Arcade"
                ]
           },
           {
-               "discount_percentage": 40,
-               "original_price": 6990,
-               "final_price": 4194,
-               "game_name": "SnowRunner",
+               "game_name": "OVERLORD: ESCAPE FROM NAZARICK",
                "tags": [
-                    "Simulation",
-                    "Adventure",
-                    "Automobile Sim",
+                    "Action",
+                    "Metroidvania",
+                    "Anime",
+                    "Action-Adventure"
+               ]
+          },
+          {
+               "game_name": "XEL",
+               "tags": [
+                    "Action",
+                    "RPG",
+                    "Action-Adventure",
                     "Exploration"
                ]
           },
           {
-               "discount_percentage": 50,
-               "original_price": 9990,
-               "final_price": 4995,
-               "game_name": "Necromunda: Hired Gun",
+               "game_name": "SANABI",
                "tags": [
                     "Action",
                     "Adventure",
-                    "Warhammer 40K",
-                    "Shooter"
-               ]
-          },
-          {
-               "discount_percentage": 33,
-               "original_price": 1850,
-               "final_price": 1239,
-               "game_name": "Necesse",
-               "tags": [
-                    "Open World Survival Craft",
-                    "Sandbox",
-                    "Survival",
-                    "Online Co-Op"
-               ]
-          },
-          {
-               "discount_percentage": 80,
-               "original_price": 27500,
-               "final_price": 5500,
-               "game_name": "Need for Speed\u2122 Heat",
-               "tags": [
-                    "Racing",
-                    "Open World",
-                    "Driving",
-                    "Multiplayer"
-               ]
-          },
-          {
-               "discount_percentage": 10,
-               "original_price": 19340,
-               "final_price": 17406,
-               "game_name": "Total War: WARHAMMER III",
-               "tags": [
-                    "Early Access",
-                    "Strategy",
-                    "Turn-Based Strategy",
-                    "Grand Strategy"
-               ]
-          },
-          {
-               "discount_percentage": 80,
-               "original_price": 5400,
-               "final_price": 1080,
-               "game_name": "Warhammer: Vermintide 2",
-               "tags": [
-                    "Games Workshop",
-                    "First-Person",
-                    "Dark Fantasy",
-                    "Violent"
-               ]
-          },
-          {
-               "discount_percentage": 60,
-               "original_price": 2400,
-               "final_price": 960,
-               "game_name": "Ocean's Heart",
-               "tags": [
-                    "Action RPG",
-                    "Action",
                     "Action-Adventure",
+                    "Platformer"
+               ]
+          },
+          {
+               "game_name": "Remnants of R'lyeh",
+               "tags": [
+                    "Exploration",
+                    "Lovecraftian",
+                    "FPS",
+                    "Immersive Sim"
+               ]
+          },
+          {
+               "game_name": "Mago",
+               "tags": [
+                    "Indie",
+                    "Adventure",
+                    "Platformer",
                     "Pixel Graphics"
                ]
           },
           {
-               "discount_percentage": 25,
-               "original_price": 20000,
-               "final_price": 15000,
-               "game_name": "Destiny 2: The Witch Queen Deluxe Edition",
-               "tags": [
-                    "Action",
-                    "Adventure",
-                    "Free to Play",
-                    "Multiplayer"
-               ]
-          },
-          {
-               "discount_percentage": 33,
-               "original_price": 10000,
-               "final_price": 6700,
-               "game_name": "Destiny 2: The Witch Queen",
-               "tags": [
-                    "Action",
-                    "Adventure",
-                    "Free to Play",
-                    "Looter Shooter"
-               ]
-          },
-          {
-               "discount_percentage": 50,
-               "original_price": 4950,
-               "final_price": 2475,
-               "game_name": "Total War: WARHAMMER II - Rise of the Tomb Kings",
+               "discount_percentage": 66,
+               "original_price": 14600,
+               "final_price": 4964,
+               "game_name": "Total War: WARHAMMER II",
                "tags": [
                     "Strategy",
-                    "Action",
-                    "RTS",
-                    "Fantasy"
+                    "Fantasy",
+                    "Turn-Based Strategy",
+                    "RTS"
                ]
           },
           {
@@ -928,27 +756,63 @@
                ]
           },
           {
-               "discount_percentage": 50,
-               "original_price": 4950,
-               "final_price": 2475,
-               "game_name": "Total War: WARHAMMER II - Curse of the Vampire Coast",
+               "discount_percentage": 66,
+               "original_price": 2650,
+               "final_price": 901,
+               "game_name": "Cultist Simulator",
                "tags": [
-                    "Strategy",
-                    "Action",
-                    "Violent",
-                    "Vampire"
+                    "Management",
+                    "Card Game",
+                    "Roguelite",
+                    "Horror"
                ]
           },
           {
-               "discount_percentage": 34,
-               "original_price": 9999,
-               "final_price": 6599,
-               "game_name": "The Dark Pictures Anthology: House of Ashes",
+               "discount_percentage": 80,
+               "original_price": 5400,
+               "final_price": 1080,
+               "game_name": "Warhammer: Vermintide 2",
                "tags": [
-                    "Choices Matter",
-                    "Horror",
-                    "Survival Horror",
-                    "Psychological Horror"
+                    "Games Workshop",
+                    "First-Person",
+                    "Dark Fantasy",
+                    "Violent"
+               ]
+          },
+          {
+               "discount_percentage": 75,
+               "original_price": 11700,
+               "final_price": 2925,
+               "game_name": "A Way Out",
+               "tags": [
+                    "Co-op",
+                    "Online Co-Op",
+                    "Split Screen",
+                    "Story Rich"
+               ]
+          },
+          {
+               "discount_percentage": 60,
+               "original_price": 2350,
+               "final_price": 940,
+               "game_name": "Shadow Tactics: Aiko's Choice",
+               "tags": [
+                    "Real Time Tactics",
+                    "Strategy",
+                    "Action",
+                    "Adventure"
+               ]
+          },
+          {
+               "discount_percentage": 75,
+               "original_price": 14600,
+               "final_price": 3650,
+               "game_name": "Total War: WARHAMMER",
+               "tags": [
+                    "Strategy",
+                    "Fantasy",
+                    "RTS",
+                    "War"
                ]
           },
           {
@@ -964,6 +828,18 @@
                ]
           },
           {
+               "discount_percentage": 70,
+               "original_price": 25999,
+               "final_price": 7799,
+               "game_name": "PGA TOUR 2K21",
+               "tags": [
+                    "Sports",
+                    "Simulation",
+                    "Local Multiplayer",
+                    "Golf"
+               ]
+          },
+          {
                "discount_percentage": 60,
                "original_price": 16600,
                "final_price": 6640,
@@ -976,38 +852,63 @@
                ]
           },
           {
-               "discount_percentage": 60,
-               "original_price": 2650,
-               "final_price": 1060,
-               "game_name": "Alice: Madness Returns",
+               "discount_percentage": 35,
+               "original_price": 3300,
+               "final_price": 2145,
+               "game_name": "The Forgotten City",
                "tags": [
-                    "3D Platformer",
-                    "Action-Adventure",
-                    "Hack and Slash",
-                    "Female Protagonist"
+                    "Adventure",
+                    "Time Travel",
+                    "Exploration",
+                    "Indie"
                ]
           },
           {
-               "discount_percentage": 40,
-               "original_price": 4700,
-               "final_price": 2820,
-               "game_name": "Warhammer 40,000: Battlesector",
+               "discount_percentage": 10,
+               "original_price": 19340,
+               "final_price": 17406,
+               "game_name": "Total War: WARHAMMER III",
                "tags": [
+                    "Early Access",
                     "Strategy",
-                    "Warhammer 40K",
                     "Turn-Based Strategy",
-                    "Turn-Based Tactics"
+                    "Grand Strategy"
                ]
           },
           {
-               "discount_percentage": 20,
-               "original_price": 1850,
-               "final_price": 1480,
-               "game_name": "Total War: WARHAMMER II - The Silence &amp; The Fury",
+               "discount_percentage": 75,
+               "original_price": 19000,
+               "final_price": 4750,
+               "game_name": "Warhammer 40,000: Space Marine - Anniversary Edition",
                "tags": [
-                    "Strategy",
+                    "Warhammer 40K",
                     "Action",
-                    "Violent"
+                    "Third-Person Shooter",
+                    "Sci-fi"
+               ]
+          },
+          {
+               "discount_percentage": 75,
+               "original_price": 2650,
+               "final_price": 662,
+               "game_name": "Resident Evil 4",
+               "tags": [
+                    "Inventory Management",
+                    "Survival Horror",
+                    "Action",
+                    "Zombies"
+               ]
+          },
+          {
+               "discount_percentage": 90,
+               "original_price": 4700,
+               "final_price": 470,
+               "game_name": "Shadow Tactics: Blades of the Shogun",
+               "tags": [
+                    "Stealth",
+                    "Strategy",
+                    "Tactical",
+                    "Ninja"
                ]
           },
           {
@@ -1023,99 +924,195 @@
                ]
           },
           {
+               "discount_percentage": 75,
+               "original_price": 3900,
+               "final_price": 975,
+               "game_name": "Barotrauma",
+               "tags": [
+                    "Co-op",
+                    "Multiplayer",
+                    "Survival",
+                    "Submarine"
+               ]
+          },
+          {
+               "discount_percentage": 60,
+               "original_price": 10279,
+               "final_price": 4111,
+               "game_name": "Desperados III",
+               "tags": [
+                    "Strategy",
+                    "Real Time Tactics",
+                    "Stealth",
+                    "Western"
+               ]
+          },
+          {
                "discount_percentage": 50,
                "original_price": 2650,
                "final_price": 1325,
-               "game_name": "Everybody's Gone to the Rapture",
+               "game_name": "Bug Fables: The Everlasting Sapling",
                "tags": [
-                    "Walking Simulator",
-                    "Atmospheric",
+                    "RPG",
                     "Indie",
-                    "Great Soundtrack"
+                    "Adventure",
+                    "Action"
                ]
           },
           {
-               "discount_percentage": 65,
-               "original_price": 7800,
-               "final_price": 2730,
-               "game_name": "Command &amp; Conquer\u2122 Remastered Collection",
+               "discount_percentage": 30,
+               "original_price": 2650,
+               "final_price": 1855,
+               "game_name": "Lost Ruins",
                "tags": [
-                    "Strategy",
-                    "RTS",
-                    "Base Building",
-                    "Classic"
+                    "Anime",
+                    "Action",
+                    "Metroidvania",
+                    "Pixel Graphics"
+               ]
+          },
+          {
+               "discount_percentage": 45,
+               "original_price": 16999,
+               "final_price": 9349,
+               "game_name": "Sherlock Holmes Chapter One",
+               "tags": [
+                    "Detective",
+                    "Open World",
+                    "Story Rich",
+                    "Mystery"
                ]
           },
           {
                "discount_percentage": 50,
-               "original_price": 1850,
-               "final_price": 925,
-               "game_name": "Total War: WARHAMMER II - The Twisted &amp; The Twilight",
+               "original_price": 3900,
+               "final_price": 1950,
+               "game_name": "Resident Evil 7 Biohazard",
                "tags": [
-                    "Strategy",
-                    "Action",
-                    "Violent",
-                    "Fantasy"
+                    "Horror",
+                    "Survival Horror",
+                    "First-Person",
+                    "Singleplayer"
                ]
           },
           {
-               "discount_percentage": 50,
-               "original_price": 4950,
-               "final_price": 2475,
-               "game_name": "Total War: WARHAMMER - Realm of The Wood Elves",
+               "discount_percentage": 25,
+               "original_price": 2150,
+               "final_price": 1612,
+               "game_name": "FOREWARNED",
                "tags": [
-                    "Strategy",
-                    "Action",
-                    "Violent",
-                    "Fantasy"
+                    "Horror",
+                    "Online Co-Op",
+                    "Survival Horror",
+                    "Co-op"
                ]
           },
           {
-               "discount_percentage": 50,
-               "original_price": 4950,
-               "final_price": 2475,
-               "game_name": "Total War: WARHAMMER - Call of the Beastmen",
+               "discount_percentage": 90,
+               "original_price": 4700,
+               "final_price": 470,
+               "game_name": "Warhammer 40,000: Gladius - Relics of War",
                "tags": [
                     "Strategy",
-                    "Action",
-                    "Fantasy",
-                    "War"
+                    "Warhammer 40K",
+                    "4X",
+                    "Turn-Based Strategy"
+               ]
+          },
+          {
+               "discount_percentage": 45,
+               "original_price": 5500,
+               "final_price": 3025,
+               "game_name": "Operation: Tango",
+               "tags": [
+                    "Online Co-Op",
+                    "Co-op Campaign",
+                    "Puzzle",
+                    "Hacking"
+               ]
+          },
+          {
+               "discount_percentage": 35,
+               "original_price": 3900,
+               "final_price": 2535,
+               "game_name": "Black Geyser: Couriers of Darkness",
+               "tags": [
+                    "RPG",
+                    "CRPG",
+                    "Real-Time with Pause",
+                    "Party-Based RPG"
+               ]
+          },
+          {
+               "discount_percentage": 30,
+               "original_price": 3300,
+               "final_price": 2310,
+               "game_name": "Stormworks: Build and Rescue",
+               "tags": [
+                    "Sandbox",
+                    "Flight",
+                    "Open World",
+                    "Building"
                ]
           },
           {
                "discount_percentage": 75,
-               "original_price": 6990,
-               "final_price": 1747,
-               "game_name": "Space Hulk: Deathwing Enhanced Edition",
+               "original_price": 10999,
+               "final_price": 2749,
+               "game_name": "Dragon Age II: Ultimate Edition",
                "tags": [
+                    "RPG",
+                    "Adventure",
                     "Action",
-                    "Warhammer 40K",
-                    "Co-op",
-                    "FPS"
-               ]
-          },
-          {
-               "discount_percentage": 50,
-               "original_price": 1850,
-               "final_price": 925,
-               "game_name": "Total War: WARHAMMER II - The Warden &amp; The Paunch",
-               "tags": [
-                    "Strategy",
-                    "Action",
-                    "Violent",
                     "Fantasy"
                ]
           },
           {
-               "discount_percentage": 20,
+               "discount_percentage": 40,
+               "original_price": 3300,
+               "final_price": 1980,
+               "game_name": "Ultra Age",
+               "tags": [
+                    "Difficult",
+                    "Action",
+                    "Action RPG",
+                    "Hack and Slash"
+               ]
+          },
+          {
+               "discount_percentage": 50,
                "original_price": 2650,
-               "final_price": 2120,
-               "game_name": "HYPERCHARGE: Unboxed",
+               "final_price": 1325,
+               "game_name": "Factory Town",
+               "tags": [
+                    "Base Building",
+                    "Automation",
+                    "Sandbox",
+                    "Resource Management"
+               ]
+          },
+          {
+               "discount_percentage": 40,
+               "original_price": 2650,
+               "final_price": 1590,
+               "game_name": "CrossCode",
+               "tags": [
+                    "Action RPG",
+                    "Pixel Graphics",
+                    "RPG",
+                    "Female Protagonist"
+               ]
+          },
+          {
+               "discount_percentage": 20,
+               "original_price": 3300,
+               "final_price": 2640,
+               "game_name": "Forgive Me Father",
                "tags": [
                     "Action",
-                    "Shooter",
-                    "Online Co-Op",
-                    "FPS"
+                    "FPS",
+                    "Lovecraftian",
+                    "Shooter"
                ]
           }
      ]

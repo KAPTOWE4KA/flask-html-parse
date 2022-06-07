@@ -1,0 +1,3 @@
+#ignore useless html files and parsed json file
+*.html
+*.json
