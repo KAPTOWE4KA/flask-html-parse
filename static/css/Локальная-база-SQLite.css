@@ -1,0 +1,140 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 634px;
+}
+
+.u-section-1 .u-text-1 {
+  width: 647px;
+  margin: 60px auto 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-style: italic;
+  width: 894px;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-table-1 {
+  margin-top: 30px;
+  margin-bottom: 46px;
+}
+
+.u-block-ae0b-49 {
+  border-style: dotted;
+}
+
+.u-block-ae0b-48 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-entity-1 {
+  min-height: 100px;
+}
+
+.u-section-1 .u-table-header-1 {
+  background-image: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.u-section-1 .u-table-body-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-table-cell-5 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-6 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-7 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-8 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-9 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-10 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-11 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-12 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-13 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-14 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-15 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-16 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-17 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-18 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-19 {
+  border-style: dotted;
+}
+
+.u-section-1 .u-table-cell-20 {
+  border-style: dotted;
+}
+
+.u-block-ae0b-35 {
+  background-image: none;
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-2 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-text-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 340px;
+  }
+}
