@@ -3,24 +3,19 @@ import sqlite3
 
 
 class TableController:
-    def __init__(self, file="db.sqlite", t_name="", columns=["id", "value"]):
+    def __init__(self, file="db.sqlite", t_name=""):
         self.file_name = file
         self.table_name = t_name
-        self.columns = columns
 
     def test_connect(self):
         if not os.path.exists(self.file_name):
             raise sqlite3.OperationalError("DB not found")
         conn = sqlite3.connect(self.file_name)
         cur = conn.cursor()
-        col_str = ""
-        for col in self.columns:
-            col_str += f" {col}"
-        col_str = col_str.replace(" ", ", ")[2:]
-        query = f"select {col_str} from {self.table_name}"
-        print("Test Querry: "+query)
+        query = f"select * from {self.table_name}"
+        #print("Test Querry: "+query)
         cur.execute(query)
-        print("Connection completed. Table found. Columns are correct.")
+        return 1
 
     def select(self, columns=["*"], where="", order_by="", show_query=False):
         query = f"SELECT {', '.join(str(col) for col in columns)} from {self.table_name}"

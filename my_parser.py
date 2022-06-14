@@ -1,26 +1,36 @@
 from bs4 import BeautifulSoup
 import requests as req
-import sql_controller
+from sql_controller import TableController
 
-if __name__ == "__main__":
-    resp = req.get("https://store.steampowered.com/search/results?sort_by=Released_DESC&force_infinite=1"
-                   "&tags=19%2C492"
-                   "&genre=action"
-                   "&page=2")
 
+def parse(genre=""):
+    url = "https://store.steampowered.com/search/results?sort_by=Released_DESC&force_infinite=1"
+    if genre!="":
+        url += f"&genre={genre}"
+    resp = req.get(url)
+    print(f"URL: {url}")
+    if resp.status_code!=200:
+        return -1
+    #TODO по статусу не робит - если жанр не существует он вернет все игры.
+    # нужно цеплять кол-во записей и если она будет больше 105 тысяч то значит жанра не существует
+    open("test.html", "w", encoding="utf-8").write(resp.text)
+    return 0
     soup = BeautifulSoup(resp.text, "lxml")
-
     results = soup.find("div", id="search_resultsRows")
+    # pages = soup.find("div", id="search_pagination_right").find_all("a")
+    # max_pages = 1
+    # for a in pages:
+    #     max()
 
-    pages = soup.find("div", id="search_pagination_right").find_all("a")
-    max_pages = 1
-    for a in pages:
-        max()
+    games_table = TableController("steam_games.sqlite", "games")
+    tags_table = TableController("steam_games.sqlite", "game_tags")
+    game_2_tag_table = TableController("steam_games.sqlite", "game_to_game_tags")
+
+    if not (games_table.test_connect() and tags_table.test_connect() and game_2_tag_table.test_connect()):
+        return -2
 
     game_tags = []
-
-    valute_simbol = ""
-
+    valute_symbol = ""
     for tag in results.find_all("a"): # searching valute simbol to use it further
         if tag.find("div", attrs={"class": "search_price"}).text.__len__() > 1 and "free" not in tag.find("div", attrs={"class": "search_price"}).text.lower():
             valute_simbol = tag.find("div", attrs={"class": "search_price"}).text.strip()[-1]
