@@ -61,7 +61,7 @@ class TableController:
 
 
 if __name__ == '__main__':
-    tc1 = TableController(file="steam_games.sqlite", t_name="game_tags", columns=["id", "name"])
+    tc1 = TableController(file="steam_games.sqlite", t_name="game_tags")
     tc1.test_connect()
     for row in tc1.select(show_query=True):
         print(", ".join([str(r) for r in row]))

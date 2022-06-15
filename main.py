@@ -46,7 +46,7 @@ def parser_post():
     print(request.form['genre'])
     parse_result = my_parser.parse(request.form['genre'])
     if parse_result == -1:
-        return render_template("Парсер.html", nav=nav, links=links, error="Жанр не найден!")
+        return render_template("Парсер.html", nav=nav, links=links, error="Жанр не найден! Жанр должен начинаться с заглавной буквы и только на английском.")
     elif parse_result == -2:
         return render_template("Парсер.html", nav=nav, links=links, error="База данных не найдена. Проверьте целостность файла БД.")
     else:
