@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Парсер</title>
+<link rel="stylesheet" href="/static/css/Парсер.css" media="screen">
+      {{links|safe}}
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/logo_steam.svg"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Парсер">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+  {{nav|safe}}
+    <section class="u-clearfix u-grey-30 u-section-1" id="sec-0fd7">
+      <form class="u-form" method="post" name="form1">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <h4 class="u-text u-text-default u-text-1"> Жанр игры <input class="u-search" style="background-color: rgb(118, 118, 118)" type="text" name="genre" placeholder="Например: Action..."></h4>
+
+              <button type="submit" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-hover-white u-btn-1">Спарсить</button>
+          </div>
+      </form>
+        <h4 class="u-text u-text-default u-text-1" style="color: red">{{error}}</h4>
+    </section>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e196"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright</p>
+      </div></footer>
+  </body>
+</html>

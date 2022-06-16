@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Responsive Table">
+    <meta name="description" content="">
+    <title>Локальная-база-SQLite</title>
+<link rel="stylesheet" href="/static/css/Локальная-база-SQLite.css" media="screen">
+
+    {{links|safe}}
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/logo_steam.svg"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Локальная-база-SQLite">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+  {{nav|safe}}
+    <section class="u-align-center u-clearfix u-palette-5-base u-section-1" id="carousel_45e4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-custom-font u-font-playfair-display u-text u-text-1">База данных</h2>
+        <p class="u-text u-text-2">Данные из БД загружаются в таблицу</p>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          {% if table %}
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+            </colgroup>
+            <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
+              <tr style="height: 46px;">
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Image </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Game name </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Final price </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Release date </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Game Tags </th>
+              </tr>
+            </thead>
+            <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
+              {% for row in table %}
+              <tr style="height: 69px;">
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><img src="{{row[0]}}"></td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-6"><a target="_blank" href="{{row[2]}}">{{row[1]}}</a></td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-7">{{row[3]}} {{row[4]}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">{{row[5]}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">
+                  <details>
+                     <summary style="color: rgb(71, 138, 201)">{{row[6].split(',')[0]}} {{row[6].split(',')[1]}}...</summary>
+                    {% for tag in row[6].split(',')[2:] %}
+                      <option>
+                        {{tag}}
+                      </option>
+                    {% endfor %}
+                  </details>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
+          <h4 class="u-text u-text-default u-text-1" style="color: red">{{error}}</h4>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-e196"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright&nbsp;Copyright</p>
+      </div></footer>
+  </body>
+</html>
