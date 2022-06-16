@@ -1,3 +1,6 @@
+import sqlite3
+import time
+
 from sql_controller import TableController
 
 class Game:
@@ -20,7 +23,7 @@ class Game:
         self.g2t_table.test_connect()
 
     def insert(self):
-        if self.games_table.select(columns=["name"], where=f"name = {self.name} or id = {self.id}").__len__()>0:
+        if self.games_table.select(columns=["name"], where=f"name = '{self.name}' or id = {self.id}", show_query=False).__len__()>0:
             print(f"Game with id: {self.id} already exist")
             return -1  # запись уже есть в базе
         elif self.id==0 or self.name=="noname" or self.valute_symbol=="":
@@ -30,15 +33,23 @@ class Game:
                 #adding game to table
                 self.games_table.insert(columns=["id", "name", "release_date", "discount", "instance_price", "final_price", "link", "image_link", "valute_symbol"],
                                     values=[self.id, f"'{self.name}'", f"'{self.release_date}'", self.discount, self.instance_price, self.final_price, 
-                                            f"'{self.link}'", f"'{self.image_link}'", f"'{self.valute_symbol}'"], show_query=True)
+                                            f"'{self.link}'", f"'{self.image_link}'", f"'{self.valute_symbol}'"], show_query=False)
                 #adding tags to table
                 for tag in self.tags:
-                    if self.tags_table.select(columns=["name"], where=f"name = {self.name}").__len__() == 0:
-                        tagid = self.tags_table.select(columns=["max(id)"])+1
-                        self.tags_table.insert(columns=["id", "name"], values=[tagid, tag])
+                    if self.tags_table.select(columns=["name"], where=f"name = '{tag}'", show_query=False).__len__() == 0:
+                        self.tags_table.insert(columns=["name"], values=[f"'{tag}'"], show_query=False)
+                        tagid = self.tags_table.select(columns=["id"], where=f"name = '{tag}'", show_query=False)[0][0]
                         #adding links : game -<= tags
-                        if self.g2t_table.select(columns=["game_id", "tag_id"], where=f"game_id = {self.id}, tag_id = {tagid}").__len__()==0:
-                            self.g2t_table.insert(columns=["game_id", "tag_id"], values=[self.name, tagid])
-            except:
+                        if self.g2t_table.select(columns=["game_id", "tag_id"], where=f"game_id = {self.id} and tag_id = {tagid}", show_query=False).__len__()==0:
+                            self.g2t_table.insert(columns=["game_id", "tag_id"], values=[self.id, tagid], show_query=False)
+                    else:
+                        tagid = self.tags_table.select(columns=["id"], where=f"name = '{tag}'", show_query=False)[0][0]
+                        if self.g2t_table.select(columns=["game_id", "tag_id"], where=f"game_id = {self.id} and tag_id = {tagid}", show_query=False).__len__()==0:
+                            self.g2t_table.insert(columns=["game_id", "tag_id"], values=[self.id, tagid], show_query=False)
+                print(f"ИГРА {self.name} была УСПЕШНО ДОБАВЛЕНА")
+            except Exception as e:
+                self.games_table.delete(where=f"id = {self.id}")
+                self.g2t_table.delete(where=f"game_id = {self.id}")
+                print(e.__str__())
                 return -3  # ошибка в query
         

@@ -32,19 +32,19 @@ class TableController:
     def insert(self, columns: list, values: list, show_query=False):
         #insert into game_tags(name) values ('Puzzle')
         query = f"INSERT INTO {self.table_name}({', '.join(str(col) for col in columns)}) VALUES({', '.join(str(val) for val in values)}) "
-        con = sqlite3.connect(self.file_name)
+        con = sqlite3.connect(self.file_name, timeout=7)
         cur = con.cursor()
         if show_query:
             print(query)
         cur.execute(query)
         con.commit()
-        return cur.fetchall()
+        return con
 
     def delete(self, where="", show_query=False):
         query = f"DELETE FROM {self.table_name}"
         if len(where) > 1:
             query += f" WHERE {where}"
-        con = sqlite3.connect(self.file_name)
+        con = sqlite3.connect(self.file_name, timeout=7)
         cur = con.cursor()
         if show_query:
             print(query)
@@ -53,10 +53,9 @@ class TableController:
         return cur.fetchall()
 
     def _custom_query_(self, query):
-        con = sqlite3.connect(self.file_name)
+        con = sqlite3.connect(self.file_name,timeout=7)
         cur = con.cursor()
         cur.execute(query)
-        con.commit()
         return cur.fetchall()
 
 

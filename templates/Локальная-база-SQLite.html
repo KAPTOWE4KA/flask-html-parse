@@ -26,6 +26,7 @@
         <h2 class="u-custom-font u-font-playfair-display u-text u-text-1">База данных</h2>
         <p class="u-text u-text-2">Данные из БД загружаются в таблицу</p>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
+          {% if table %}
           <table class="u-table-entity u-table-entity-1">
             <colgroup>
               <col width="25%">
@@ -35,39 +36,36 @@
             </colgroup>
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
               <tr style="height: 46px;">
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 1 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 3 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 4 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Image </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Game name </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Final price </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Release date </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Game Tags </th>
               </tr>
             </thead>
             <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
+              {% for row in table %}
               <tr style="height: 69px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Item #1</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-6">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-7">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">Description</td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><img src="{{row[0]}}"></td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-6"><a target="_blank" href="{{row[2]}}">{{row[1]}}</a></td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-7">{{row[3]}} {{row[4]}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">{{row[5]}}</td>
+                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">
+                  <details>
+                     <summary style="color: rgb(71, 138, 201)">{{row[6].split(',')[0]}} {{row[6].split(',')[1]}}...</summary>
+                    {% for tag in row[6].split(',')[2:] %}
+                      <option>
+                        {{tag}}
+                      </option>
+                    {% endfor %}
+                  </details>
+                </td>
               </tr>
-              <tr style="height: 69px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">Item #2</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-10">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-11">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-12">Description</td>
-              </tr>
-              <tr style="height: 70px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-13">Item #3</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-14">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-15">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-16">Description</td>
-              </tr>
-              <tr style="height: 70px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-17">Item #4</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-18">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-19">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">Description</td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
+          {% endif %}
+          <h4 class="u-text u-text-default u-text-1" style="color: red">{{error}}</h4>
         </div>
       </div>
     </section>
