@@ -52,8 +52,8 @@
                 <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">{{row[5]}}</td>
                 <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">
                   <details>
-                     <summary style="color: rgb(71, 138, 201)">{{row[6].split(',')[0]}} {{row[6].split(',')[1]}}...</summary>
-                    {% for tag in row[6].split(',')[2:] %}
+                     <summary style="color: rgb(71, 138, 201)">{{row[6][0]}} {{row[6][1]}}...</summary>
+                    {% for tag in row[6][2:] %}
                       <option>
                         {{tag}}
                       </option>
