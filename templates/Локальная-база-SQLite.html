@@ -25,6 +25,14 @@
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-custom-font u-font-playfair-display u-text u-text-1">База данных</h2>
         <p class="u-text u-text-2">Данные из БД загружаются в таблицу</p>
+        <form class="u-form" method="post" name="form1">
+          <h2 class="u-custom-font u-font-playfair-display u-text u-text-1">Фильтр</h2>
+          <input class="u-search u-align-center" style="background-color: rgb(118, 118, 118); margin: auto" type="text" name="gamename" placeholder="Название игры">
+          <input class="u-search u-align-center" style="background-color: rgb(118, 118, 118); margin: auto" type="number" name="mincost" placeholder="Минимальная цена">
+          <input class="u-search u-align-center" style="background-color: rgb(118, 118, 118); margin: auto" type="number" name="maxcost" placeholder="Максимальная цена">
+          <button type="submit" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-hover-white u-btn-1" style="margin: auto">Применить</button>
+        </form>
+        <h4 class="u-text u-text-default u-text-1" style="color: red">{{form_error}}</h4>
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
           {% if table %}
           <table class="u-table-entity u-table-entity-1">
@@ -52,8 +60,8 @@
                 <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">{{row[5]}}</td>
                 <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">
                   <details>
-                     <summary style="color: rgb(71, 138, 201)">{{row[6].split(',')[0]}} {{row[6].split(',')[1]}}...</summary>
-                    {% for tag in row[6].split(',')[2:] %}
+                     <summary style="color: rgb(71, 138, 201)">{{row[6][0]}} {{row[6][1]}}...</summary>
+                    {% for tag in row[6][2:] %}
                       <option>
                         {{tag}}
                       </option>

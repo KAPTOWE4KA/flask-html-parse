@@ -1,7 +1,11 @@
+import os
+
 from bs4 import BeautifulSoup
 import requests as req
 from sql_controller import TableController
 from class_game import Game
+from class_game import Games, Game_Tags, Base, engine
+from sqlalchemy.orm import sessionmaker
 
 
 def parse(genre=""):
@@ -21,68 +25,69 @@ def parse(genre=""):
     #print(result_count)
     if result_count > 100000:  # if games more than 100000 then genre is not exist
         return -1
-    games_table = TableController("steam_games.sqlite", "games")
-    tags_table = TableController("steam_games.sqlite", "game_tags")
-    game_2_tag_table = TableController("steam_games.sqlite", "game_to_game_tags")
+    # Старый подход:
+    # games_table = TableController("steam_games.sqlite", "games")
+    # tags_table = TableController("steam_games.sqlite", "game_tags")
+    # game_2_tag_table = TableController("steam_games.sqlite", "game_to_game_tags")
 
-    if not (games_table.test_connect() and tags_table.test_connect() and game_2_tag_table.test_connect()):
-        return -2
+    # Новый подход через SQLAlchemy
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    game_tags = []
     valute_symbol = ""
     for tag in results.find_all("a"):  # searching valute simbol to use it further
-        if tag.find("div", attrs={"class": "search_price"}).text.__len__() > 2 and "free" not in tag.find("div", attrs={
-            "class": "search_price"}).text.lower():
+        if tag.find("div", attrs={"class": "search_price"}).text.__len__() > 2 and "free" not in tag.find("div", attrs={"class": "search_price"}).text.lower():
             valute_symbol = tag.find("div", attrs={"class": "search_price"}).text.strip()[-1]
             break
 
-    GAMES = []
     for tag in results.find_all("a"):
-        temp_game = Game()
         #print("Game link: " + tag['href'])
-        temp_game.link = tag['href']
+        link = tag['href']
         tags_soup = BeautifulSoup(req.get(tag['href']).text, "lxml").find_all("a", attrs={"class": "app_tag"})
-        for game_tag in tags_soup:
-            if game_tag not in game_tags:
-                game_tags.append(game_tag.text.strip().replace("'", "''"))
-        temp_game.tags = game_tags
         #print("Game id: " + tag['data-ds-itemkey'])  # game id
-        temp_game.id = int(tag['data-ds-itemkey'].replace("App_", ""))
+        gid = int(tag['data-ds-itemkey'].replace("App_", ""))
+        if session.query(Games).filter_by(id=gid).first():
+            continue
         #print("Game name: " + tag.find("span", attrs={"class": "title"}).text)  # game name
-        temp_game.name = tag.find("span", attrs={"class": "title"}).text.replace("'", "''")
+        name = tag.find("span", attrs={"class": "title"}).text.replace("'", "''")
         #print("Game release date: " + tag.find("div", attrs={"class": "search_released"}).text)  # release date
-        temp_game.release_date = tag.find("div", attrs={"class": "search_released"}).text
+        release_date = tag.find("div", attrs={"class": "search_released"}).text
         if tag.find("strike"):
             #print("Game discount: " + tag.find("div", attrs={"class": "search_discount"}).find("span").text)  # discount
-            temp_game.discount = int(
+            discount = int(
                 tag.find("div", attrs={"class": "search_discount"}).find("span").text.replace("-", "").replace("%", ""))
             #print("Game inst price: " + tag.find("strike").text)  # game inst price
-            temp_game.instance_price = int(tag.find("strike").text.replace(valute_symbol, "").replace(" ", ""))
+            instance_price = int(tag.find("strike").text.replace(valute_symbol, "").replace(" ", ""))
             #print("Game final price: " + tag.find("div", attrs={"class": "search_price"}).contents[3])  # game final price
-            temp_game.final_price = int(
-                tag.find("div", attrs={"class": "search_price"}).contents[3].replace(valute_symbol, "").replace(" ",
-                                                                                                                ""))
+            final_price = int(
+                tag.find("div", attrs={"class": "search_price"}).contents[3].replace(valute_symbol, "").replace(" ", ""))
         else:
+            discount = 0
             if tag.find("div", attrs={"class": "search_price"}).text.__len__() > 1 and "free" not in tag.find("div",attrs={"class": "search_price"}).text.lower():
                 #print(
                 #     "Game price: " + tag.find("div", attrs={"class": "search_price"}).text.strip())  # game final price
-                temp_game.final_price = int(tag.find("div", attrs={"class": "search_price"}).text.strip().replace(valute_symbol, "").replace(" ", ""))
+                final_price = int(tag.find("div", attrs={"class": "search_price"}).text.strip().replace(valute_symbol, "").replace(" ", ""))
             else:
                 #print(f"Game price: 0{valute_symbol}")
-                temp_game.final_price = 0
+                final_price = 0
         #print("Game image link: " + tag.find("img")["src"])
-        temp_game.image_link = tag.find("img")["src"]
-        temp_game.valute_symbol = valute_symbol
-        result_code = temp_game.insert()
-        if result_code == -1:
-            print(f"ЗАПИСЬ С ИГРОЙ {temp_game.name} УЖЕ ЕСТЬ В БАЗЕ")
-        elif result_code == -2:
-            print(f"---НЕ ВСЕ ВАЖНЫЕ ПОЛЯ ЗАПОЛНЕНЫ ДЛЯ ИГРЫ {temp_game.name}")
-        elif result_code == -3:
-            print(f"---ОШИБКА ЗАПРОСА К БАЗЕ ДЛЯ ИГРЫ {temp_game.name}")
-        #break  # testing
-        #
-        # #TODO Уважаемый куратор. Если вы это читаете - напишите в ответе на моё домашнее задание улыбающийся смайл)
-        #
+        image_link = tag.find("img")["src"]
+        if discount==0:
+            temp_game = Games(gid, name, release_date, final_price, link, image_link, valute_symbol)
+        else:
+            temp_game = Games(gid, name, release_date, final_price,link,image_link,valute_symbol, discount=discount, instance_price=instance_price)
+        for game_tag in tags_soup:
+            if not session.query(Game_Tags).filter_by(name=game_tag.text.strip().replace("'", "''")).first():
+                ttag = Game_Tags(game_tag.text.strip().replace("'", "''"))
+                temp_game.tags.append(ttag)
+            else:
+                temp_game.tags.append(session.query(Game_Tags).filter_by(name=game_tag.text.strip().replace("'", "''")).first())
+
+        if not session.query(Games).filter_by(name=temp_game.name).first():
+            session.add(temp_game)
+        session.commit()
+        session.close()
+
     #print("Game tags: ")
     #print(game_tags)

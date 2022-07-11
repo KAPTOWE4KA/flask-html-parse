@@ -1,7 +1,61 @@
 import sqlite3
 import time
-
+from sqlalchemy import Column, Integer, String, Numeric, create_engine, Table, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, relationship, joinedload
 from sql_controller import TableController
+
+engine = create_engine(
+    "sqlite:///orm.sqlite"
+    #"check_same_thread=false"  #BUG: при false он не может найти файл базы - если он есть, а по умолчанию иногда при использовании фильтра выдает ошибку связанную с потоками
+    , echo=True)
+
+Base = declarative_base()
+
+
+Game_To_Game_Tags = Table(
+    'games_to_game_tags',
+    Base.metadata,
+    Column('game_id', ForeignKey('games.id')),
+    Column('game_tags_id', ForeignKey('game_tags.id'))
+)
+
+
+class Game_Tags(Base):
+    __tablename__ = 'game_tags'
+    id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    name = Column(String(255), unique=True, nullable=False)
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Games(Base):
+    __tablename__ = 'games'
+    id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    name = Column(String(255), unique=True, nullable=False)
+    release_date = Column(String(50))
+    discount = Column(Integer, nullable=True)
+    instance_price = Column(Integer, nullable=True)
+    final_price = Column(Integer)
+    link = Column(String(255))
+    image_link = Column(String(255))
+    valute_symbol = Column(String(5))
+    tags = relationship(
+        "Game_Tags",
+        secondary=Game_To_Game_Tags,
+        backref="games")
+
+    def __init__(self, gid, name, release_date, final_price, link, image_link, valute_symbol, discount=None, instance_price=None):
+        self.id = gid
+        self.name = name
+        self.release_date = release_date
+        self.discount = discount
+        self.instance_price = instance_price
+        self.final_price = final_price
+        self.link = link
+        self.image_link = image_link
+        self.valute_symbol = valute_symbol
 
 class Game:
     def __init__(self, gid=0, name="noname", release_date="", discount=0, instance_price=0, final_price=0, link=0, image_link=0, valute_symbol="", tags=[]):
