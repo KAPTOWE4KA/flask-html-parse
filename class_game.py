@@ -5,7 +5,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship, joinedload
 from sql_controller import TableController
 
-engine = create_engine('sqlite:///orm.sqlite', echo=True)
+engine = create_engine(
+    "sqlite:///orm.sqlite"
+    #"check_same_thread=false"  #BUG: при false он не может найти файл базы - если он есть, а по умолчанию иногда при использовании фильтра выдает ошибку связанную с потоками
+    , echo=True)
 
 Base = declarative_base()
 
